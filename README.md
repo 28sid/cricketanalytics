@@ -5,8 +5,11 @@ This project focuses on analyzing the ICC T20 World Cup 2024 by leveraging web s
 
 # Key Features
 ✅ Data Scraping & Processing: Extracted and cleaned 50K+ match records from ESPN Cricinfo using BeautifulSoup & Pandas.
+
 ✅ Database Management: Stored structured match data in SQL for efficient querying and analysis.
+
 ✅ Power BI Dashboards: Developed 5+ dashboards to visualize batting trends, bowling impact, team performance, and winning strategies.
+
 ✅ Advanced DAX Functions: Used Power BI DAX to create calculated metrics and interactive reports.
 
 # Data Pipeline & Workflow
