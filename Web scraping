@@ -1,0 +1,26 @@
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+# Step 1: Fetch the page content
+url = 'https://www.espncricinfo.com/records/tournament/bowling-best-career-economy-rate/icc-men-s-t20-world-cup-2024-15946'  # replace with the actual URL
+response = requests.get(url)
+response.raise_for_status()  # check for any errors
+
+
+soup = BeautifulSoup(response.content, 'html.parser')
+
+table = soup.find('table')  # adjust this if there are multiple tables or a specific class
+
+
+rows = table.find_all('tr')
+data = []
+
+for row in rows:
+    cells = row.find_all(['th', 'td'])
+    data.append([cell.get_text(strip=True) for cell in cells])
+
+df = pd.DataFrame(data)
+df.to_csv('besteco.csv', index=False, header=False)  # Set header=True if you want the first row as column headers
+
+print("Data successfully saved to output.csv")
